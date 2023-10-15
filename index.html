@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Components</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: sans-serif;
+      }
+
+      body {
+        margin: 2rem;
+      }
+    </style>
+    <script src="tooltip.js"></script>
+    <script src="confirm-link.js"></script>
+    <script src="modal.js"></script>
+  </head>
+  <body>
+    <p>
+      <hs-tooltip text="Tooltip text">Web component</hs-tooltip> and other
+      things.
+    </p>
+    <a is="hs-confirm-link" href="https://www.google.com">Google</a>
+    <hs-modal>
+      <h1 slot="title">Please Confirm</h1>
+      <p>Please confirm that you want this action to apply.</p>
+    </hs-modal>
+    <p>Please confirm</p>
+    <button>Confirm</button>
+    <script>
+      const confirmButton = document.querySelector("button");
+      const modal = document.querySelector("hs-modal");
+      confirmButton.addEventListener("click", () => modal.open());
+    </script>
+  </body>
+</html>
